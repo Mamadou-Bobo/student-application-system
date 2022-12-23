@@ -1,0 +1,98 @@
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.838);
+
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+}  
+
+.modal-container{
+    margin: auto;
+    width: 50%;
+    height: 550px;
+    max-width: 40rem;
+    border-radius: 10px;
+
+    background-color: white;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+}
+
+.top-content {
+    height: 130px;
+    /* padding: 10px; */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-around; */
+
+}
+
+.top h1 {
+    font-size: 25px;
+}
+
+.step {
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.first,
+.second {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.first div:first-child,
+.second div:first-child {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+    
+    border-radius: 50%;
+}
+
+.default,
+.default-hr hr {
+    background-color: #2980b9;
+}
+
+.first div:last-child hr,
+.second div:last-child hr {
+    width: 200px;
+    height: 6px;
+
+    border: none;
+}
+
+/* .secondStep {
+    background-color: #ddd;
+}
+
+.last hr {
+    border-radius: 0 5px 5px 0;
+    background-color: #ddd;
+} */
+
+.step h1 {
+    font-size: 14px;
+}

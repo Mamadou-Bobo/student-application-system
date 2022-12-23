@@ -1,0 +1,44 @@
+<div class="form">
+    <form [formGroup]="form">
+        <div class="form-content">
+            <div>
+                <label for="salutation">Salutation</label>
+                <select formControlName="salutation" name="salutation" id="salutation">
+                    <option *ngFor="let salutation of this.transform(this.salutations)" [ngValue]="salutation.value">{{salutation.name}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="nationality">Nationality</label>
+                <input formControlName="nationality">
+            </div>
+            <div>
+                <label for="passportNumber">Passport Number</label>
+                <input formControlName="passportNumber">
+            </div>
+            <div>
+                <label for="gender">Gender</label>
+                <select formControlName="gender" name="gender" id="gender">
+                    <option *ngFor="let gender of this.transform(this.genders)" [ngValue]="gender.value">{{gender.name}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="contactAddress">Contact Address</label>
+                <input formControlName="contactAddress">
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <select formControlName="country" name="country" id="country">
+                    <option *ngFor="let country of this.transform(this.countries)" [ngValue]="country.value">{{country.name}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="city">city</label>
+                <input formControlName="city">
+            </div>
+        </div>
+        <div (click)="next()" class="button">
+            <div><h1>Next</h1></div>
+            <div><i class="fas fa-arrow-right"></i></div>
+        </div>
+    </form>
+</div>

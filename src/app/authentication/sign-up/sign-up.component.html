@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="content">
+        <div class="logo">
+            <img src="../../../assets/images/logo.png" alt="logo">
+        </div>
+        <div class="title">
+            <h1>Sign up</h1>
+        </div>
+        <div class="form">
+            <form [formGroup]="userForm">
+                <div class="form-content">
+                    <div class="first-form-content">
+                        <div><input placeholder="First Name"  type="text" formControlName="firstName"></div>
+                        <div><input placeholder="Last Name" type="text" formControlName="lastName"></div>
+                    </div>
+                    <div class="second-form-content">
+                        <div><input placeholder="Username" type="text" formControlName="username"></div>
+                        <div><input placeholder="Email" type="email" formControlName="email"></div>
+                        <div><input placeholder="Password" type="password" formControlName="password"></div>
+                        <div><button type="button" (click)="signUp()">Sign up</button></div>
+                        <div><h1>Do you have an account?</h1></div>
+                        <div><button routerLink="">Login here</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { catchError, Observable, throwError } from "rxjs";
+import { UserAuthService } from "src/app/services/user-auth.service";
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+    constructor(private userAuthService: UserAuthService,
+                private router: Router) {}
+
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if(req.headers.get('No-Auth') === 'True') {
+            return next.handle(req.clone());
+        }
+
+        const token = this.userAuthService.getAccessToken();
+
+        req = this.addToken(req,token);
+
+        return next.handle(req).pipe(
+            catchError(
+                (error:HttpErrorResponse) => {
+                    if(error.status === 401) {
+                        this.router.navigate(['login']);
+                    } else if(error.status === 403) {
+                        this.router.navigate(['forbidden']);
+                    } else if(error.status === 404) {
+                        return throwError(() => new Error(error.error));
+                    }
+                    return throwError(() => new Error("You cannot access to this page"));
+                }
+            )
+        );
+    }
+
+    private addToken(request: HttpRequest<any>, token: string) {
+        return request.clone(
+            {
+                setHeaders: {
+                    Authorization: 'Bearer ' + token
+                }
+            }
+        )
+    }
+
+}

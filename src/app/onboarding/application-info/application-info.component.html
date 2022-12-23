@@ -1,0 +1,27 @@
+<div class="form">
+    <form [formGroup]="form">
+        <div class="form-content">
+            <div>
+                <label for="entryLevel">Entry level</label>
+                <select formControlName="entryLevel" name="entryLevel" id="entryLevel">
+                    <option *ngFor="let entryLevel of this.transform(this.entryLevels)" [ngValue]="entryLevel.value">{{entryLevel.name}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="studyMode">Study Mode</label>
+                <select formControlName="studyMode" name="studyMode" id="studyMode">
+                    <option *ngFor="let studyMode of this.transform(this.studyModes); index as i" [ngValue]="studyMode.value">{{studyMode.name}}</option>
+                </select>
+            </div>
+            <div>
+                <label for="courseInterested">Course Interested</label>
+                <select formControlName="courseInterested" name="courseInterested" id="courseInterested">
+                    <option *ngFor="let courseInterested of this.transform(this.coursesInterested)" [ngValue]="courseInterested.value">{{courseInterested.name}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="button">
+        <button (click)="addAcademicQualification()">Upload</button>
+    </div>
+</div>

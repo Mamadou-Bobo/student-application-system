@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    color: #000;
+}

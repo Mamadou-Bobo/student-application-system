@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="modal">
+        <div class="modal-container">
+            <div class="top">
+                <div class="top-content">
+                    <div class="step">
+                        <div class="first">
+                            <div [ngStyle]="{'background-color': !stepData.isNext ? purpleColor : greyColor,
+                                             'color': !stepData.isNext ? '#fff' : '#333' }">1</div>
+                            <div><hr [ngStyle]="{'background-color': !stepData.isNext ? purpleColor : greyColor}"></div>
+                        </div>
+                        <div class="title">
+                            <h1>Personal Information</h1>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="second">
+                            <div [ngStyle]="{'background-color': stepData.isNext ? purpleColor : greyColor,
+                                             'color': stepData.isNext ? '#fff' : '#000' }">2</div>
+                            <div><hr [ngStyle]="{'background-color': stepData.isNext ? purpleColor : greyColor }"></div>
+                        </div>
+                        <div class="title">
+                            <h1>Applicaton Information</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div [ngStyle]="{'display': !stepData.isNext ? 'block' : 'none'}">
+                <!-- <app-personal-info></app-personal-info> -->
+            </div>
+            <div [ngStyle]="{'display': stepData.isNext ? 'block' : 'none'}">
+                <app-application-info></app-application-info>
+            </div>
+        </div>
+    </div>
+</div>

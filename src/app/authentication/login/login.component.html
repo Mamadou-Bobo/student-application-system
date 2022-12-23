@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="content">
+    <div class="form">
+      <img src="../../../assets/images/logo.png" alt="logo">
+      <h1>Sign in</h1>
+      <form [formGroup]="userForm">
+        <div class="form-content">
+          <div>
+            <input type="text" formControlName="username" placeholder="Username">
+          </div>        
+          <div>
+            <input type="password" formControlName="password" placeholder="password">
+          </div>
+          <div>
+            <button type="button" (click)="login()">Sign in</button>
+          </div>
+          <div class="bottom">
+            <div class="forgot">
+              <hr>
+              <h1>Forgot your password?</h1>
+              <hr>
+            </div>
+            <div>
+              <h1>Don't have an account?</h1>
+            </div>
+            <div>
+              <button routerLink="/sign-up">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="alert-message" [ngStyle]="{'display': isError ? 'flex' : 'none'}">
+      <div>
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <div>
+        <h1>{{errorMessage}}</h1>
+      </div>
+      <div (click)="hideAlert()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+  </div>
+</div>
+    
